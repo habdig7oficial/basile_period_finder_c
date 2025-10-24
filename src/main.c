@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "string.h"
+#include "stdlib.h"
 
 #include "./functions/mod.h"
 
@@ -9,6 +10,8 @@ int main(int argc, char *argv[]){
             printf("Compact %s\n", argv[i + 1]);
 
             char *compressed_str = compress(argv[i + 1], strlen(argv[i + 1]));
+
+            free(compressed_str);
         } 
     }
     return 0;
