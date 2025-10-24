@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--compress") == 0){
             printf("Compact %s\n", argv[i + 1]);
 
-            compress(argv[i + 1]);
+            char *compressed_str = compress(argv[i + 1], strlen(argv[i + 1]));
         } 
     }
     return 0;
