@@ -50,7 +50,5 @@ char *compress(char *text, int len){
 
     printf("Slice: %s\n",string_builder);
 
-    free(string_builder);
-
-    return "";
+    return string_builder;
 }
