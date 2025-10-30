@@ -3,3 +3,6 @@ compile:
 
 run: compile
 	./compact -c abcabcabcabcabc
+
+abcabcabcabcabc
+abcabcabcabcabc
