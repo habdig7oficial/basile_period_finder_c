@@ -16,7 +16,10 @@ int main(int argc, char *argv[]){
         else if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--decompress") == 0){
             printf("Decompress %s\n", argv[i + 1]);
 
-            char *decompressed_str = decompress(argv[i + 1], strlen(argv[i + 1]));
+            int len = (int) strlen(argv[i + 1]);
+            char *decompressed_str = decompress(argv[i + 1], len);
+            printf("Descompressed: %s", decompressed_str);
+            free(decompressed_str);
         }
         
     }
