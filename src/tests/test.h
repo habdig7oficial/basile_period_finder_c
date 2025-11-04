@@ -41,12 +41,12 @@ bool test_all(){
     };
 
        for(int i = 0; i < sizeof(decompress_cases) / sizeof(decompress_cases[0]); i++){
-        char *decompress_str = decompress(decompress_cases[i][1], strlen(decompress_cases[i][1]));
-        printf("%s\n", decompress_str);
+            char *decompress_str = decompress(decompress_cases[i][1], strlen(decompress_cases[i][1]));
+            printf("%s\n", decompress_str);
 
-        assert(strcmp(decompress_str, decompress_cases[i][0]) == 0);
+            assert(strcmp(decompress_str, decompress_cases[i][0]) == 0);
 
-        free(decompress_str);
+            free(decompress_str);
     }
 
 

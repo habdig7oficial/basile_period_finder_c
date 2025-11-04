@@ -23,6 +23,13 @@ int main(int argc, char *argv[]){
             printf("Descompressed: %s", decompressed_str);
             free(decompressed_str);
         }
+        else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--compress-legacy") == 0){
+            printf("Compress W %s\n", argv[i + 1]);
+
+            char *compressed_str = compress_legacy(argv[i + 1], strlen(argv[i + 1]));
+
+            free(compressed_str);
+        } 
         else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--test") == 0){
             printf("Loading tests Batery\n");
 
