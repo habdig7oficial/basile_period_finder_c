@@ -1,8 +1,10 @@
 #include "stdio.h"
+#include "stdbool.h"
 #include "string.h"
 #include "stdlib.h"
 
 #include "./functions/mod.h"
+#include "./tests/test.h"
 
 int main(int argc, char *argv[]){
     for(int i = 1; i < argc; i++){
@@ -20,6 +22,16 @@ int main(int argc, char *argv[]){
             char *decompressed_str = decompress(argv[i + 1], len);
             printf("Descompressed: %s", decompressed_str);
             free(decompressed_str);
+        }
+        else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--test") == 0){
+            printf("Loading tests Batery\n");
+
+            bool succeded = test_all();
+
+            if(succeded){
+                printf("\n------------ All tests Ran Successfully ------------\n");
+            }
+
         }
         
     }

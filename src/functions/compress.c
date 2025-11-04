@@ -79,5 +79,7 @@ char *compress(char *text, int len){
 
     printf("Slice: %s\n",string_builder);
 
+    string_builder[strlen(string_builder) - 1] = '\0';
+
     return string_builder;
 }
