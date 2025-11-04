@@ -14,19 +14,22 @@ char *find_period(char *text, int len, int *counter, int *buffer_size){
 
         if(strcmp(left, right) == 0){
             *buffer_size = i;
+
+            char *period_left = (char *) malloc(i);
+            memcpy(period_left, &text[0], i);
+
             printf("Left: %s, Right: %s %d\n", left, right, strcmp(left, right));
             for(int j = 0; j + i <= len; (*counter)++, j += i){
-                char *period_left = (char *) malloc(i);
+
                 char *period_right = (char *) malloc(i);
 
-                memcpy(period_left, &text[0], i);
-                memcpy(period_right, &text[j], j + i);
-
+                memcpy(period_right, &text[j], i);
 
                 printf("\tPeriod Left: %s, Period Right: %s, Counter: %d, Bf: %d\n", period_left, period_right, *counter, *buffer_size);
-
+                
                 if(strcmp(period_left, period_right) != 0)
                     break;
+                
             } 
             printf("Return: %d %d", *counter, *buffer_size);
             return left;
