@@ -13,6 +13,8 @@ int main(int argc, char *argv[]){
 
             char *compressed_str = compress(argv[i + 1], strlen(argv[i + 1]));
 
+            printf("RESULTED = %s", compressed_str);
+
             free(compressed_str);
         } 
         else if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--decompress") == 0){
@@ -20,13 +22,20 @@ int main(int argc, char *argv[]){
 
             int len = (int) strlen(argv[i + 1]);
             char *decompressed_str = decompress(argv[i + 1], len);
+
             printf("Descompressed: %s", decompressed_str);
+
+            printf("\nRESULTED = %s", decompressed_str);
+
             free(decompressed_str);
         }
         else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--compress-legacy") == 0){
             printf("Compress W %s\n", argv[i + 1]);
 
             char *compressed_str = compress_legacy(argv[i + 1], strlen(argv[i + 1]));
+
+            printf("RESULTED = %s", compressed_str);
+
 
             free(compressed_str);
         } 
