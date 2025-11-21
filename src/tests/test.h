@@ -6,7 +6,6 @@ bool test_all(){
     char *compress_cases[][2]= {
         {"a", "a1"},
         {"abcdfabcdfabcdfabcdf", "abcdf4"},
-        //{"ab", "a1-b1"},
         //{"abcdfabcdfabcdfabcdfcaabbabab", "abcdf4-c1-a2-b2-ab2"},
         {"aaaaaaabbbbbaaaaaaaaaa", "a7-b5-a10"},
         /* Basile Tests */          
@@ -14,6 +13,10 @@ bool test_all(){
         {"ababababababaaaaaaaaaaaaaaa", "ab6-a15"},
         {"abcabcabcabcxyxyxyccccccc", "abc4-xy3-c7"},
         {"antonioantonioantoniocarloscarlos", "antonio3-carlos2"},
+
+        /* -- MORE -- */
+        {"ab", "a1-b1"},
+        {"abcdfabcdfabcdfabcdfcaabbabab", "abcdf4-c1-a2-b2-ab2"}
     };
 
     for(int i = 0; i < sizeof(compress_cases) / sizeof(compress_cases[0]); i++){

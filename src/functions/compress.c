@@ -6,8 +6,11 @@
 char *find_period(char *text, int len, int *counter, int *buffer_size){
     *counter = *buffer_size = 0;
     for(int i = 1; i < len / 2 + 1; i++){
-        char *left = (char *) malloc(i);
-        char *right = (char *) malloc(i);
+        char *left = (char *) malloc(i + 1);
+        char *right = (char *) malloc(i + 1);
+
+        left[i] = '\0';
+        right[i] = '\0';
 
         memcpy(left, &text[0], i);
         memcpy(right, &text[i], i);
@@ -16,12 +19,14 @@ char *find_period(char *text, int len, int *counter, int *buffer_size){
             *buffer_size = i;
 
             char *period_left = (char *) malloc(i);
-            memcpy(period_left, &text[0], i);
+            memcpy(period_left, &text[0], i + 1);
+            period_left[i] = '\0';
 
             printf("Left: %s, Right: %s %d\n", left, right, strcmp(left, right));
             for(int j = 0; j + i <= len; (*counter)++, j += i){
 
-                char *period_right = (char *) malloc(i);
+                char *period_right = (char *) malloc(i + 1);
+                period_right[i] = '\0';
 
                 memcpy(period_right, &text[j], i);
 
@@ -38,7 +43,10 @@ char *find_period(char *text, int len, int *counter, int *buffer_size){
 
     *counter = *buffer_size = 1;
 
-    return &text[0];
+    char *safe_char = (char *) calloc(*buffer_size + 1, *buffer_size + 1);
+    safe_char[0] = text[0];
+
+    return safe_char;
 }
 
 char *compress(char *text, int len){
@@ -75,6 +83,7 @@ char *compress(char *text, int len){
 
         printf("%d %d", buffer_size, counter);
         printf("\nSlice: %d %s %lu %lu %d\n", i, string_builder, strlen(string_builder), allocated_area, needed);
+        free(new_slice);
     }
 
     printf("Slice: %s\n",string_builder);
