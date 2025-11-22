@@ -1,3 +1,8 @@
+/*
+ * Mateus Felipe da Silveira Vieira - 10723904
+ * Rayana Pimentel Lopes - 10435370
+ */
+ 
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
